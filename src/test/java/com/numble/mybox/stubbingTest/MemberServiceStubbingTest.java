@@ -1,4 +1,4 @@
-package com.numble.mybox.unitTest;
+package com.numble.mybox.stubbingTest;
 
 import com.numble.mybox.member.domain.Member;
 import com.numble.mybox.member.domain.MemberRepository;
@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class MemberServiceTest {
+public class MemberServiceStubbingTest {
 
     private static final long ID = 1L;
     private static final String NAME = "사용자1";
