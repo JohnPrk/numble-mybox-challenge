@@ -5,6 +5,8 @@ import com.numble.mybox.member.domain.MemberRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface JpaMemberRepository extends JpaRepository<Member, Long>, MemberRepository {
 
@@ -12,5 +14,8 @@ public interface JpaMemberRepository extends JpaRepository<Member, Long>, Member
     Member save(Member member);
 
     @Override
-    void deleteById(Long aLong);
+    void deleteById(Long id);
+
+    @Override
+    Optional<Member> findById(Long id);
 }
