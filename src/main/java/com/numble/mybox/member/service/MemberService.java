@@ -19,7 +19,7 @@ public class MemberService {
     @Transactional
     public MemberResponse join(String name) {
         Member savedMember = memberRepository.save(new Member(name));
-        return savedMember.toEntity();
+        return MemberResponse.of(savedMember);
     }
 
     @Transactional

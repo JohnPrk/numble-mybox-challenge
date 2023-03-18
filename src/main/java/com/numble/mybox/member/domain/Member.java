@@ -33,8 +33,4 @@ public class Member {
         this.name = name;
         this.usage = usage;
     }
-
-    public MemberResponse toEntity() {
-        return new MemberResponse(this.getId(), this.getName(), this.getUsage());
-    }
 }
