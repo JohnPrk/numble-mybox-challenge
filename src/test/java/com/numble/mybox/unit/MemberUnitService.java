@@ -13,7 +13,7 @@ import java.util.Optional;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
-public class MemberUnitService {
+class MemberUnitService {
 
     private static final String NAME = "사용자1";
 

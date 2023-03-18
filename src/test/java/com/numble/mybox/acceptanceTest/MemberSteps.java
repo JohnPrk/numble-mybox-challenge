@@ -9,7 +9,7 @@ import io.restassured.response.Response;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MemberSteps {
+class MemberSteps {
 
     public static ExtractableResponse<Response> 회원_생성(MemberRequest request) {
         Map<String, String> params = new HashMap<>();

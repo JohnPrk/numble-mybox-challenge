@@ -15,7 +15,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class MemberServiceStubbingTest {
+class MemberServiceStubbingTest {
 
     private static final long ID = 1L;
     private static final String NAME = "사용자1";

@@ -9,7 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class AcceptanceSetUp {
+class AcceptanceSetUp {
 
     protected final MemberRequest 사용자1 = new MemberRequest("사용자1");
 

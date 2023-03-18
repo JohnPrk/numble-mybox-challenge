@@ -9,7 +9,7 @@ import static com.numble.mybox.acceptanceTest.MemberSteps.회원_삭제;
 import static com.numble.mybox.acceptanceTest.MemberSteps.회원_생성;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MemberAcceptanceTest extends AcceptanceSetUp {
+class MemberAcceptanceTest extends AcceptanceSetUp {
 
     @Test
     void 회원을_생성하고_201_상태코드와_정보를_확인한다() {
