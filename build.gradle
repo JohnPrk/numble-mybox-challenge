@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.numble'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-SNAPSHOT-' + new Date().format("yyyyMMddHHmmss")
 sourceCompatibility = '11'
 
 configurations {
@@ -31,14 +31,20 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-	finalizedBy 'jacocoTestReport'
-}
-
 jacoco {
 	toolVersion = "0.8.8"
 	reportsDirectory = layout.buildDirectory.dir('jacocoDir')
+}
+
+test {
+	finalizedBy 'jacocoTestReport'
+	useJUnitPlatform()
+
+	jacoco {
+
+		excludes += ["com/numble/mybox/MyboxApplication.class",
+					 "com/numble/mybox/member/service/dto/*"]
+	}
 }
 
 jacocoTestReport {
@@ -48,18 +54,14 @@ jacocoTestReport {
 		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
 	}
 
-	def excludes = []
-	excludes.add("*.MyboxApplication")
-	excludes.add("*.*Configuration")
-	excludes.add("*.*Application.*")
-	excludes.add("*.*dto.*")
-
 	afterEvaluate {
 		classDirectories.setFrom(files(classDirectories.files.collect {
 			fileTree(dir: it,
-			exclude: [] + excludes)
+					exclude: ["com/numble/mybox/MyboxApplication.class",
+							  "com/numble/mybox/member/service/dto/*"])
 		}))
 	}
+
 
 	finalizedBy 'jacocoTestCoverageVerification'
 }
@@ -67,6 +69,7 @@ jacocoTestReport {
 
 jacocoTestCoverageVerification {
 	violationRules {
+
 		rule {
 			enabled = true
 			// 클래스 단위로 커버리지 체크
@@ -87,10 +90,8 @@ jacocoTestCoverageVerification {
 			}
 
 			excludes = [
-					"*.NumbleMyboxApplication",
-					"*.*Configuration",
-					"*.*Application.*",
-					"*.*dto.*",
+			        '*.*Application',
+					'*.dto.*'
 			]
 		}
 	}
